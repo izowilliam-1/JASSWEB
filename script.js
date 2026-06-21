@@ -20,6 +20,34 @@ document.querySelector('.cta-button').addEventListener('click', () => {
     document.querySelector('#activities').scrollIntoView({ behavior: 'smooth' });
 });
 
+// Role Tabs Filtering
+const roleTabs = document.querySelectorAll('.role-tab');
+const roleCards = document.querySelectorAll('.role-card');
+
+roleTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        // Remove active class from all tabs
+        roleTabs.forEach(t => t.classList.remove('active'));
+        // Add active class to clicked tab
+        tab.classList.add('active');
+
+        const role = tab.dataset.role;
+
+        // Filter role cards
+        roleCards.forEach(card => {
+            if (role === 'all') {
+                card.style.display = 'block';
+            } else if (card.dataset.role === role) {
+                card.style.display = 'block';
+            } else if (card.dataset.role) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
 // Contact Form Submission
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
@@ -87,7 +115,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all cards for animation
-document.querySelectorAll('.about-card, .activity-card, .news-card, .contact-info').forEach(card => {
+document.querySelectorAll('.about-card, .activity-card, .role-card, .news-card, .contact-info').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
     card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
