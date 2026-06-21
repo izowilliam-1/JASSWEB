@@ -36,7 +36,7 @@ body {
 .navbar {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -49,13 +49,29 @@ body {
     align-items: center;
 }
 
-.logo h1 {
-    font-size: 1.8rem;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-badge {
+    width: 60px;
+    height: 60px;
+}
+
+.badge-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.logo-text h1 {
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
-.logo .subtitle {
-    font-size: 0.75rem;
+.logo-text .subtitle {
+    font-size: 0.65rem;
     opacity: 0.9;
 }
 
@@ -95,12 +111,39 @@ body {
 .hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
-    padding: 100px 20px;
+    padding: 80px 20px;
     text-align: center;
     min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-badge {
+    width: 180px;
+    height: 180px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.hero-badge-svg {
+    width: 100%;
+    height: 100%;
 }
 
 .hero-content h2 {
@@ -410,11 +453,28 @@ body {
 .footer {
     background: var(--dark-bg);
     color: white;
-    padding: 2rem;
+    padding: 3rem 2rem;
     text-align: center;
 }
 
-.footer p {
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-badge {
+    width: 100px;
+    height: 100px;
+}
+
+.footer-badge-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.footer-text p {
     margin-bottom: 0.5rem;
 }
 
@@ -446,6 +506,20 @@ body {
         display: flex;
     }
 
+    .logo-badge {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo-text h1 {
+        font-size: 1.2rem;
+    }
+
+    .hero-badge {
+        width: 120px;
+        height: 120px;
+    }
+
     .hero-content h2 {
         font-size: 2.5rem;
     }
@@ -475,8 +549,22 @@ body {
 }
 
 @media (max-width: 480px) {
-    .logo h1 {
-        font-size: 1.3rem;
+    .logo-badge {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo-text h1 {
+        font-size: 1rem;
+    }
+
+    .logo-text .subtitle {
+        font-size: 0.55rem;
+    }
+
+    .hero-badge {
+        width: 100px;
+        height: 100px;
     }
 
     .hero-content h2 {
@@ -497,5 +585,10 @@ body {
 
     .contact-form {
         padding: 1.5rem;
+    }
+
+    .footer-badge {
+        width: 80px;
+        height: 80px;
     }
 }

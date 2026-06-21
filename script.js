@@ -96,7 +96,7 @@ document.querySelectorAll('.about-card, .activity-card, .news-card, .contact-inf
 
 // Dynamic year in footer
 const currentYear = new Date().getFullYear();
-const footerText = document.querySelector('.footer p:first-child');
+const footerText = document.querySelector('.footer-text p:first-child');
 if (footerText) {
     footerText.textContent = `© ${currentYear} Juba Seventh Day Adventist Secondary School. All rights reserved.`;
 }
